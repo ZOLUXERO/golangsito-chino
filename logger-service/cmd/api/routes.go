@@ -8,6 +8,7 @@ import (
 	"github.com/go-chi/cors"
 )
 
+// TODO: add swagger docs for all the apis with swaggo, https://github.com/swaggo/http-swagger
 func (app *Config) routes() http.Handler {
 	mux := chi.NewRouter()
 

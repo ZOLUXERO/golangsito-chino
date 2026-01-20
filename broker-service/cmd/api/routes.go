@@ -8,6 +8,7 @@ import (
 	"github.com/go-chi/cors"
 )
 
+// TODO: add swagger docs for all the apis with swaggo, https://github.com/swaggo/http-swagger
 func (app *Config) routes() http.Handler {
 	mux := chi.NewRouter()
 
@@ -27,7 +28,7 @@ func (app *Config) routes() http.Handler {
 	mux.Post("/handle", app.HandleSubmission)
 	mux.Post("/log-grpc", app.LogViaGRPC)
 
-	// this is for testing purposses, you should never leave a mail service open in the internet
+	// WARN: this is for testing purposses, you should never leave a mail service open in the internet
 	// all microservices should communicate to the email micro directly and not let this broker handle it
 	mux.Post("/mail", app.HandleSubmission)
 
